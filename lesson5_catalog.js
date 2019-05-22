@@ -88,8 +88,8 @@ function countCartTotal(item) {
 }
 
 function init() {
-    catalogView();
    $catalog.addEventListener('click', handleBuyClick);
+   catalogView();
    var $catalog = document.querySelector('#catalog');
 
 }
