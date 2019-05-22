@@ -50,6 +50,7 @@ function isExistInCart(id) {
 }
 
 function handleBuyClick(event) {
+   event.preventDefault();
    if (event.target.tagName === 'BUTTON') {
       if (isExistInCart(+event.target.dataset.id)) {
          var idx = findIdx(+event.target.dataset.id);
