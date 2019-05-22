@@ -60,7 +60,7 @@ function gameOver() {
 function isSnakeUnit(unit) {
    return snake.includes(unit);
 }
-
+// добавил изменения 68, 71, 75, 79 стр.
 function move() {
    switch (direction) {
       case 'top':
