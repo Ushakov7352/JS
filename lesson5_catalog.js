@@ -5,12 +5,12 @@ function Product(id, title, price, image) {
    this.price = price;
    this.image = image;
 }
-var product1 = new Product('1', 'куртка', 26, 'img/Layer_4.jpg');
-var product2 = new Product('2', 'платье', 28, 'img/Layer_5.jpg');
-var product3 = new Product('3', 'платье', 34, 'img/Layer_6.jpg');
-var product4 = new Product('4', 'пиджак', 40, 'img/Layer_7.jpg');
-var product5 = new Product('5', 'брюки', 18, 'img/Layer_8.jpg');
-var product6 = new Product('6', 'шорты', 26, 'img/Layer_9.jpg');
+var product1 = new Product('1', 'куртка', 26, 'img/Layer_4m.jpg');
+var product2 = new Product('2', 'платье', 28, 'img/Layer_5m.jpg');
+var product3 = new Product('3', 'платье', 34, 'img/Layer_6m.jpg');
+var product4 = new Product('4', 'пиджак', 40, 'img/Layer_7m.jpg');
+var product5 = new Product('5', 'брюки', 18, 'img/Layer_8m.jpg');
+var product6 = new Product('6', 'шорты', 26, 'img/Layer_9m.jpg');
 
 var $catalogProd = [product1, product2, product3, product4, product5, product6, ];
 
@@ -68,6 +68,11 @@ function handleBuyClick(event) {
       countCartTotal(cart);
 
    }
+   if (event.target.tagName === 'IMG') {
+      var $overlay = document.querySelector('.overlay');
+      $overlay.style.display = 'block';
+      $overlay.querySelector('.preview').src = event.target.src;
+   }
 }
 
 function countCartTotal(items) {
@@ -87,11 +92,19 @@ function countCartTotal(items) {
    $cart.textContent = message;
 }
 
+function handleCloseClick() {
+   var $overlay = document.querySelector('.overlay');
+   $overlay.style.display = 'none';
+
+}
+
 function init() {
+    catalogView();
    var $catalog = document.querySelector('#catalog');
    $catalog.addEventListener('click', handleBuyClick);
-   catalogView();
   
+   var $close = document.querySelector('.close');
+   $close.addEventListener('click', handleCloseClick);
 
 }
 window.addEventListener('load', init);
