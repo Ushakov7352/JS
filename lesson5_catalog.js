@@ -70,15 +70,15 @@ function handleBuyClick(event) {
    }
 }
 
-function countCartTotal(item) {
+function countCartTotal(items) {
    var total = 0;
    var count = 0;
    for (var i = 0; i < items.length; i++) {
-      total += item[i].price * item[i].quantity;
+      total += items[i].price * items[i].quantity;
       count += items[i].quantity;
    }
    var message = '';
-   if (item.length) {
+   if (items.length) {
       message = ' В корзине   ' + count + '  товаров  на сумму ' + total + '  рублей';
    } else {
       message = 'Корзина пуста'
