@@ -5,6 +5,33 @@
    <meta charset="UTF-8">
    <title> JS</title>
    <link rel="stylesheet" href="style.css">
+   <style>
+      .picture {
+         cursor: pointer;
+      }
+
+      .overlay {
+         background-color: rgba(0, 0, 0, 0.6);
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100vw;
+         height: 100vh;
+         z-index: 1;
+         display: none;
+      }
+
+      .modal {
+         background-color: beige;
+         width: 400px;
+         height: 400px;
+         margin: 100px auto;
+         z-index: 2;
+      }
+
+      .preview {}
+
+   </style>
 </head>
 
 <body>
@@ -16,8 +43,16 @@
          <button class="button">Купить</button>
       </li>
    </div>
+
    <div id="cart"></div>
    <ul id="catalog"></ul>
+   <div class="overlay">
+      <div class="modal">
+         <button class="close">Закрыть</button>
+         <img class="preview" />
+      </div>
+   </div>
+
    <script src="lesson5_catalog.js"></script>
 
 
