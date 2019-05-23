@@ -5,14 +5,10 @@ function Product(id, title, price, image) {
    this.price = price;
    this.image = image;
 }
-var product1 = new Product('1', 'куртка', 26, 'img/Layer_4m.jpg');
-var product2 = new Product('2', 'платье', 28, 'img/Layer_5m.jpg');
-var product3 = new Product('3', 'платье', 34, 'img/Layer_6m.jpg');
-var product4 = new Product('4', 'пиджак', 40, 'img/Layer_7m.jpg');
-var product5 = new Product('5', 'брюки', 18, 'img/Layer_8m.jpg');
-var product6 = new Product('6', 'шорты', 26, 'img/Layer_9m.jpg');
-
-var $catalogProd = [product1, product2, product3, product4, product5, product6, ];
+var product1 = new Product(' 134 ', '  куртка    ', 26, 'img/Layer_4m.jpg');
+var product2 = new Product(' 256  ', ' платье   ', 28, 'img/Layer_5m.jpg');
+var product3 = new Product(' 343  ', ' платье   ', 34, 'img/Layer_6m.jpg');
+var $catalogProd = [product1, product2, product3, ];
 
 var cart = [];
 
@@ -31,6 +27,32 @@ function catalogView() {
    }
 }
 
+function cartView() {
+   $cartview = document.querySelector('.cartview');
+   var $id = document.createElement('p');
+   var $name=document.createElement('span');
+   var $price=document.createElement('span');
+   var $quantity=document.createElement('span');
+   
+   for (var i = 0; i < cart.length; i++) {
+      $id.textContent = cart[i].id;
+      $name.textContent = cart[i].title;
+      $price.textContent = cart[i].price;
+      $quantity.textContent = cart[i].quantity;
+      $id.appendChild($quantity);
+      $cartview.appendChild($id);
+      $id.appendChild($name);
+      //$id.appendChild($price);
+      $id.appendChild($quantity);
+      $cartview.appendChild($id);
+      
+      
+      
+   }
+
+
+
+}
 
 function findIdx(id) {
    for (i = 0; i < cart.length; i++) {
@@ -65,7 +87,9 @@ function handleBuyClick(event) {
          });
 
       }
+
       countCartTotal(cart);
+      cartView();
 
    }
    if (event.target.tagName === 'IMG') {
@@ -99,10 +123,10 @@ function handleCloseClick() {
 }
 
 function init() {
-    catalogView();
+   catalogView();
    var $catalog = document.querySelector('#catalog');
    $catalog.addEventListener('click', handleBuyClick);
-  
+
    var $close = document.querySelector('.close');
    $close.addEventListener('click', handleCloseClick);
 
