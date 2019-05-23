@@ -1,3 +1,4 @@
+
 var SIZE = {
    WIDTH: 20,
    HEIGHT: 20,
@@ -65,18 +66,18 @@ function move() {
    switch (direction) {
       case 'top':
          snakeCoordY--;
-         if (snakeCoordY == -1) snakeCoordY += 20;         break;
+         if (snakeCoordY == -1) snakeCoordY += SIZE.HEIGHT;         break;
       case 'bottom':
          snakeCoordY++;
-         snakeCoordY = snakeCoordY % 20;
+         snakeCoordY = snakeCoordY % SIZE.HEIGHT;
          break;
       case 'left':
          snakeCoordX--;
-         if (snakeCoordX == -1) snakeCoordX += 20;
+         if (snakeCoordX == -1) snakeCoordX += SIZE.WIDTH;
          break;
       case 'right':
          snakeCoordX++;
-         snakeCoordX = snakeCoordX % 20;
+         snakeCoordX = snakeCoordX % SIZE.WIDTH;
          break;
    }
 
